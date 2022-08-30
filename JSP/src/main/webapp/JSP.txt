@@ -1,0 +1,108 @@
+정규태
+JSP,Spring
+jgt8731@itwillbs.co.kr
+
+https://cafe.naver.com/learntimes
+
+운영체제, 자료구조, 네트워크,데이터베이스
+알고리즘
+
+JSP => JAVA + Servlet,JSP +HTML(JS)
+
+* 서버 : 정보,서비스를 제공하는 컴퓨터
+* 클라이언트 : 정보,서비스 제공받는 컴퓨터
+* 통신프로토콜 : (http) 통신규약   
+       - 어떻게 접속?
+       - 어떤 형태로 처리?
+       - 어떤 속도로 처리?
+
+* TCP / IP 프로토콜 
+  - 애플리케이션 층 : 실제로 사용되는 인터넷 응용프로그램
+  - 트랜스포트 층 : 데이터 전송시 에러검증,수정
+  - 네트워크 층 : 패킷단위로 데이터를 정확한 위치로 전달
+  - 데이터 링크 층 : 랜카드 제어 및 데이터 통신을 위한 HW제어
+
+애플리케이션 층	 <----> 	애플리케이션 층
+		(가상의 데이터 송수신)
+트랜스포트층(TCP/UDP)	트랜스포트층(TCP/UDP)
+
+네트워크 층(IP 인터넷층)  	네트워크 층(IP 인터넷층)
+	  	   <--->
+		(실질적인 데이터 송수신)
+데이터 링크 층		데이터 링크 층
+
+
+* IP주소 : 인터넷에서 컴퓨터(hsot)를 구분하는 고유한 번호(전화번호)
+  127.0.0.1 => localhost(나자신) 
+
+  윈도우 + R => 'cmd'검색
+  > ping -t [192.168.7.200]
+  > ping -t 127.0.0.1
+
+* 포트번호 (port) : 인터넷상에서 사용되는 응용프로그램을 구분하기위한 번호 (1024 이하의 번호는 사용X) 
+    tomcat 8080   oracle 8080   mysql 3306
+
+
+D:\workspace_jsp
+
+
+* 웹 페이지 구성 : 정적데이터 (HTML,CSS,JS,IMG), 동적데이터(DB정보) 
+  
+  정적페이지(데이터) => WEB서버
+  동적페이지(데이터) => WAS(Web Application Server)
+
+
+  클라이언트
+    크롬	  => 1. www.naver.com 요청 
+         => 2. DNS서버  (도메인 <->IP주소) 	  => 3. WEB서버 (정적데이터)
+
+         5. www.naver.com 페이지 확인     <= 4. 응답정보를 HTML로 구성 전달   
+
+   
+    		-> 요청  -> 	    ->      ->
+	클라이언트		   WEB 서버 	WAS	DB(Mysql)
+		<-응답정보<-          <-      <-
+
+	
+          
+
+
+D:\workspace_jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\JSP\org\apache\jsp\jsp1
+
+
+* 데이터 전달방식 (p25~)
+
+  GET방식 : 데이터 전달시 URL에 전달
+ 			데이터의 길이가 256byte를 넘길수 없음
+ 			데이터 전송속도가 빠름 
+ 			데이터가 URL에 노출 (보안적 위험)
+ 
+  http://localhost:8088/JSP/jsp1/itwill.jsp ?이름1=값1&이름2=값2 		 
+  
+  POST방식 : 데이터 전달시 BODY에 전달
+             데이터 길이 제약이 없음
+             데이터 전송속도가 느림
+             데이터가 BODY에 담겨있기때문에 보안적 우수
+  
+  http://localhost:8088/JSP/jsp1/itwill.jsp
+  
+
+ *  회원관리 프로그램
+   
+   	- 회원가입
+   	- 회원 로그인 / 로그아웃
+   	- 회원정보 조회
+   	- 회원정보 수정
+   	- 회원정보 삭제
+   	- (관리자) 모든 회원의 정보를 조회
+   	
+
+
+
+
+
+
+
+
+
+
