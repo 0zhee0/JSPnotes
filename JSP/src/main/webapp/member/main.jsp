@@ -43,6 +43,29 @@
 	
 	<h4><a href="memberDelete.jsp">회원정보 삭제</a></h4>
 	
+	<h4><a href="../board/writeForm.jsp">게시판 글쓰기</a></h4>
+	
+	<%
+	// JSP 페이지 실행 순서
+	// JSP(java) - HTML - JS
+	
+	// jsp 코드가 처음부터 끝까지 실행될 때 null 비교불가
+	// => 객체 레퍼런스를 사용할 때는 항상 null 값 체크
+// 	if(id != null){
+// 		if(id.equals("admin")){
+	if(id != null && id.equals("admin")){
+			%>
+			<!-- 관리자 전용 메뉴 -->
+			 <h4><a href="memberList.jsp">회원정보 목록</a></h4>
+			 <hr><hr>
+			<%
+	}
+// 		}
+// 	}
+	%>
+	
+
+	
 		
 </body>
 </html>

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class MemberDAO {
 	// DAO(Data Access Object) : 데이터(DB) 처리객체
@@ -148,8 +149,52 @@ public class MemberDAO {
 }
 	// 정보 삭제() - memberDelete()
 	
-	
-	
+	// 회원정보 조회(all) - memberList()
+	public ArrayList memberList(){
+		// 회원정보 저장 배열(가변길이)
+		ArrayList mList = new ArrayList(); 
+		
+		try {	
+		// 1,2. 디비연결
+			con = getConnection();
+		// 3. sql 작성(select) & pstmt 객체
+		//	sql = "select * from itwill_member";
+		// 관리자(admin) 정보를 제외한 나머지 정보 조회
+			sql = "select * from itwill_member where id != ?";
+			pstmt = con.prepareStatement(sql);
+			
+			// ??
+			pstmt.setString(1, "admin");			
+		// 4. sql 실행
+			rs = pstmt.executeQuery();
+		// 5. 데이터 처리
+			while(rs.next()) {
+				// 데이터 있을 때마다
+				// DB(테이블)정보 -> MemberBean -> ArrayList
+				
+				// DB(테이블)정보 -> MemberBean
+				MemberBean mb = new MemberBean();
+				
+				mb.setAge(rs.getInt("age"));
+				mb.setEmail(rs.getString("email"));
+				mb.setGender(rs.getString("gender"));
+				mb.setId(rs.getString("id"));
+				mb.setName(rs.getString("name"));
+				mb.setPw(rs.getString("pw"));
+				mb.setRegdate(rs.getTimestamp("regdate"));
+				
+				// MemberBean -> ArrayList
+				mList.add(mb);				
+			} // if		
+			System.out.println("DAO : 회원목록 조회 성공!");
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return mList;
+	}		
+	// 회원정보 조회(all) - memberList()
 	
 	/**
 	 * JavaDoc 주석 : 문법에 대한 설명을 작성하는 주석문

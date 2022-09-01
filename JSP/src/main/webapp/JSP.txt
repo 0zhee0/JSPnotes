@@ -96,6 +96,23 @@ D:\workspace_jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catali
    	- 회원정보 삭제
    	- (관리자) 모든 회원의 정보를 조회
    	
+  *  회원 관리 프로그램
+  
+  ~~~~Form.jsp 실행 : 사용자의 정보를 입력
+  
+ 		|	정보(request-parameter) 
+ 			=> MemberBean(자바빈 객체) : 테이블 정보를 한번에 저장하는 객체
+  
+  ~~~~Pro.jsp 실행 : 입력한 사용자의 정보 처리 (액션태그 <jsp:useBean~~ )
+  
+  					 => MemberDAO 객체 : 디비에 관한 모든 동작
+  					 => DB에 연결해서 저장/수정/삭제/조회 메서드로 표현
+  					 => Pro.jsp 페이지에서는 직접 DB호출 X 
+  					 	DAO 간접적으로 처리 (객체 결합도를 줄이는 작업)
+  					 	
+  					
+  
+   	
 
 
 
