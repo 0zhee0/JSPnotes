@@ -18,7 +18,7 @@
 				
 		// 전달된 파라메터를 저장(액션태그)	
 	%>
-	
+	<!-- dto : 데이터 전송 객체 -->
 	<jsp:useBean id="dto" class="com.itwillbs.board.BoardDTO"/>
 	<jsp:setProperty property="*" name="dto"/>
 	
