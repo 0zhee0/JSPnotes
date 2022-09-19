@@ -25,7 +25,7 @@
 	  dao.updateReadcount(bno);
 	  
 	  // 게시판 글 정보를 가져와서 출력
-	  BoardDTO dto = dao.getBorad(bno);
+	  BoardDTO dto = dao.getBoard(bno);
 	  
 // 	  System.out.println(dto);	
 	%>

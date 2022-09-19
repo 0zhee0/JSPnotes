@@ -15,7 +15,6 @@
 		request.setCharacterEncoding("utf-8");
 		
 		// 전달정보 저장 (bno, re_ref, re_lev, re_seq, subject, name, pass, content) => 액션태그
-		String bno = request.getParameter("pageNum");
 	%>
 		<jsp:useBean id="dto" class="com.itwillbs.board.BoardDTO" />
 		<jsp:setProperty property="*" name="dto"/>

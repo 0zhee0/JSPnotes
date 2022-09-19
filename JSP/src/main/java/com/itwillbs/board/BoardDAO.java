@@ -268,7 +268,7 @@ public class BoardDAO {
 					
 			try {
 				// 1.2. 디비연결
-				getConnection();
+				con = getConnection();
 				
 				// 3. sql 작성(update) & pstmt 객체
 				sql = "update itwill_board set readcount=readcount+1 "
@@ -293,7 +293,7 @@ public class BoardDAO {
 		// 조회수 1증가 - updateReadcount(bno)
 		
 		// 게시판 글 1 개의 정보 조회 - getBorad(bno)
-		public BoardDTO getBorad(int bno) {
+		public BoardDTO getBoard(int bno) {
 			BoardDTO dto = null;		
 			try {
 				// 1.2. 디비연결
@@ -322,7 +322,7 @@ public class BoardDAO {
 					dto.setIp(rs.getString("ip"));
 					dto.setName(rs.getString("name"));
 					dto.setPass(rs.getString("pass"));
-					dto.setRe_lev(rs.getInt("re_ref"));
+					dto.setRe_lev(rs.getInt("re_lev"));
 					dto.setRe_ref(rs.getInt("re_ref"));
 					dto.setRe_seq(rs.getInt("re_seq"));
 					dto.setReadcount(rs.getInt("readcount"));
@@ -515,7 +515,7 @@ public class BoardDAO {
 						pstmt.setInt(6, 0); // 조회수 0
 						pstmt.setInt(7, dto.getRe_ref()); // re_ref : 원글의 번호와 동일
 						pstmt.setInt(8, dto.getRe_lev()+1); // re_lev : 원글의 lev + 1
-						pstmt.setInt(9,dto.getRe_seq()); // re_seq : 원글의 seq + 1
+						pstmt.setInt(9,dto.getRe_seq()+1); // re_seq : 원글의 seq + 1
 						
 						pstmt.setString(10, dto.getIp());
 						pstmt.setString(11, dto.getFile());

@@ -184,5 +184,16 @@ D:\workspace_jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catali
    9		>>>답1-1-1-1	1			  3				3
    5		>답1-2			1			  1				4(수정) // 답1-1-1 전까지는 2였다. //답1-1-1-1전까지는 3이었다.
 																// 수정하는 이유 : 정렬하려고
+																
+
+	* 객체 생성 == 파일업로드																
+	MultipartRequest multi
+		= new MultipartRequest(
+				request(폼태그의 정보),
+				path(파일 업로드될 경로(서버의 경로)),
+				maxSize(파일 업로드 크기),
+				"UTF-8"(파일명 인코딩),
+				new DefaultFileRenamePolicy() (파일이름 중복 처리객체)
+		);																
 
 
