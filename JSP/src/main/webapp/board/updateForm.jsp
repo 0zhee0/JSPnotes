@@ -40,7 +40,7 @@
 		BoardDAO dao = new BoardDAO();
 		
 		// 글정보를 가져오는 메서드 호출
-		BoardDTO dto = dao.getBorad(bno);
+		BoardDTO dto = dao.getBoard(bno);
 	%>
 	
 	<fieldset>

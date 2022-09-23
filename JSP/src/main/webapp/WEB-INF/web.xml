@@ -20,5 +20,37 @@
   	<location>/Error/500err.jsp</location>  
   </error-page>
   
+  <!-- 배포서술자 : 프로젝트 실행때 가장 먼저 호출 -->
+  <!-- 해당파일은 오류가 생기면 표시가 잘 안 남 그 결과로 톰캣이 실행불가 -->
+  <!-- web.xml 파일은 중요한 파일이다. -->
+  
+  <!-- 서블릿 사용가능하도록 매핑 -->
+  <servlet>
+  	<servlet-name>ExServlet1</servlet-name>
+  	<servlet-class>com.itwillbs.servlet.ExServlet1</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ExServlet1</servlet-name>
+  	<url-pattern>/ex1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ExServlet3</servlet-name>
+  	<servlet-class>com.itwillbs.servlet.ExServlet3</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ExServlet3</servlet-name>
+  	<url-pattern>*.ex3</url-pattern>
+  </servlet-mapping>
   
 </web-app>
+
+
+
+
+
+
+
+

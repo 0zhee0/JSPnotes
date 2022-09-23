@@ -215,16 +215,72 @@ D:\workspace_jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catali
 	    
 	
 	
+	클라이언트
+	페이지요청  ->  웹서버				-> 	WAS				 		->  DB
+				    (정적데이터처리)	  	(동적데이터처리)
+				    html,css,js,img...		서블릿(컨테이너)생성
+				  							주소(url)-코드 매핑(연결)
+				  							service() 메서드 호출
+				  							doGET()/doPOST() 호출(방식에따라서)
+				  							동작 처리 후 응답정보를 만들어서 리턴	
+
+	* JSP - Servlet
+	
+	=> .jsp 파일은 .java파일(서블릿)으로 변경 후 .class 파일로 컴파일 후 시행
+	
+		jsp - 스크립틀릿 <% %>		servlet - service()안에 구현
+		jsp - 표현식 <%=name %>		servlet - service()안에 구현 / out.println(name)
+		jsp - 선언문 <%! %>			servlet - 서블릿 클래스의 멤버형태로 변경
+		jsp - html태그				servlet - service() 안에 구현 / out.write()
+		jsp - 디렉티브 <%@ %>		servlet - 객체 생성 시 참고 
+		
+		D:\workspace_jsp\.metadata\.plugins\
+		org.eclipse.wst.server.core\tmp0
+		\work\Catalina\localhost\JSP\org\apache\jsp
+		에서 확인 할 수 있다.
+		
+	* EL(Expression Language) 표현식
+	  => out.println() / <%= %> 사용해서 출력 (X)
+	  	 ${  } 형태로 변경
+	  
+	* 라이브러리 설치 필수
+	taglibs-standard-impl-1.2.5.jar
+	taglibs-standard-jstlel-1.2.5.jar
+	taglibs-standard-spec-1.2.5.jar
+	
+	${변수명}	<%=변수명%> 동일한 의미
+	${객체명.변수} / ${객체명['변수명']}
+	 => private 변수에 직접 접근 가능 (해당 set/get메서드를 호출)
+	${ 연산식 }
+	
+	* EL 표현식 내장 객체
+	
+	pageScope / requestScope / sessionScope / applicationScope
+	=> 각각의 영역에 정보 저장 / 공유 (jsp 내장객체랑 공유가능)
+
+	param, paramValues
+	=> 파라메터 정보 처리
+	
+	header, headerValues
+	=> 해더 정보
+	
+	cookie
+	=> JSP 쿠키
+	
+	initParam
+	=> 초기화 정보
+	
+	pageContext
+	=> 페이지 정보
 	
 	
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
 
 
