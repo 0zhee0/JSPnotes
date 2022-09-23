@@ -197,3 +197,34 @@ D:\workspace_jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catali
 		);																
 
 
+	* 서블릿 (Servlet) : 웹 서버에서 실행되는 자바 클래스파일
+	
+	JSP 페이지 -> JAVA 파일 -> Class 파일
+	
+	=> 서블릿 객체를 직접 생성
+	
+	* 서블릿 생성 규칙
+	1) javax.servlet.Servlet 인터페이스 객체를 구현하기
+	2) 1번의 동작을 하기 어려운 경우, javax.servlet.http.HttpServlet 상속하기
+	3) doGet() / doPost() 메서드 구현 (오버라이딩)
+	4) 전달인자로 javax.servlet.http.HttpServletRequest,
+				  javax.servlet.http.HttpServletResponse 사용해야함
+	5) java.io.IOException, javax.servlet.ServletException을 처리해야함(예외처리)
+	6) web.xml (배포서술자) 서블릿과 주소(url) 매핑
+	   => servlet 2.3 이후에서는 어노테이션으로 대체 @WebServlet()
+	    
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+

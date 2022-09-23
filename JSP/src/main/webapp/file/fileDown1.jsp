@@ -17,7 +17,7 @@
 		// 서버에 업로드된 폴더명
 		String savePath = "upload";
 		
-		// 서버의 업로드된 폴더의 실제 위치
+		// 서버에 업로드된 폴더의 실제 위치
 		ServletContext CTX = getServletContext();
 		String downloadPath = CTX.getRealPath(savePath);
 		
@@ -71,17 +71,24 @@
 		
 		// 모든 파일을 다운로드 형태로 처리
 		response.setHeader("Content_Disposition", "attachment; filename="+fileName);
+		
+		// 기본생성되는 내장객체 out 처리
+		out.clear();
+		out = pageContext.pushBody();
 	
 		// 다운로드
 		// 다운로드 하기 위한 준비 (통로 생성)
-		ServletOutputStream out2 = response.getOutputStream();
+		ServletOutputStream out2 = response.getOutputStream(); // 출력 response를 통해서 출력하겠다.
 		
 		int data = 0;
-		while((data = fis.read(b,0,b.length)) != -1){
-			out2.write(b,0,data);
+		while((data = fis.read(b,0,b.length)) != -1){ // b : 배열
+			out2.write(b,0,data);					  // -1 파일의 끝
 		}
 		
+		// 배열을 사용하여 정보 전달(버퍼)
+		// -> 배열의 빈공간에 공백을 채워서 정보 전달
 		out2.flush();
+		
 		out2.close();
 		fis.close();
 	%>
