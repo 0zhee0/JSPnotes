@@ -28,7 +28,9 @@
 	[jsp]<br>
 	메뉴1 : <%=menu[0] %><br>
 	메뉴2 : <%=menu[1] %><br>
+	
 	<hr>
+	
 	[el]<br>
 	메뉴1 : ${paramValues.menu[0] }<br>
 	메뉴2 : ${paramValues.menu[1] }<br>
@@ -39,9 +41,28 @@
 	%>
 	<h3>취미 정보</h3>
 	 [jsp]<br>
-	 취미1 : <%=hobbys[0] %><br>
-	 취미2 : <%=hobbys[1] %><br>	
-	 취미3 : <%=hobbys[2] %><br>
+<%-- 	 취미1 : <%=hobbys[0] %><br> --%>
+<%-- 	 취미2 : <%=hobbys[1] %><br>	 --%>
+<%-- 	 취미3 : <%=hobbys[2] %><br> --%>
+	 
+	 <%
+	 if( hobbys != null){
+ 	 for(int i=0;i<hobbys.length;i++){
+ 		 %> 
+		 	취미<%=i+1 %> : <%=hobbys[i] %><br>		
+		 <% 	 	
+ 	 }
+	 %>
+	 
+	 <%
+	  for(String h:hobbys){
+		  %>
+		  	취미 : <%=h %><br>
+		  <%
+		  }
+	 }
+	 %>
+	 
 	 <hr>
 	 [el]<br> 
 	 취미1 : ${paramValues.hobby[0] }<br>

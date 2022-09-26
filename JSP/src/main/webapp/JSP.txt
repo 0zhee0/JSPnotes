@@ -272,7 +272,21 @@ D:\workspace_jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catali
 	
 	pageContext
 	=> 페이지 정보
+
+----------------------------------------------------------
 	
+	* 가상주소 - 상대경로
+	
+	   1) 가상주소(./) 호출 
+		./test1 => ./ (프로젝트명) => /JSP/test1
+		
+	   2) 실제주소 호출
+		./el/Arrays.jsp => ./ (webapp폴더) => /webapp/el/Attribute.jsp
+	
+	
+	* 실제주소 - 절대경로
+		/    : (root-최상위폴더)
+		../  : (상위폴더) 
 	
 	
 	
