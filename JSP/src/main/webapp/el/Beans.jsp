@@ -30,11 +30,16 @@
 	전화번호 : <%=iPhone.getTel() %>
 	
 	<hr>
-	[el]
-	${requestScope.person.name }
+	[el] set/get 없이 변수명으로 호출
+	${requestScope.person.name }  <br> person.getName();
 	${requestScope.person.age }
+	${requestScope.person. }
+	${requestScope.person.p }
 	${requestScope.person.p.model }
 	${requestScope.person.p.tel }
+	${person.p.tel }
+	
+<%-- 	${requestScope.person.p.tel } --%>
 
 </body>
 </html>

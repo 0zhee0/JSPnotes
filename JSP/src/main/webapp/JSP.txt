@@ -288,7 +288,26 @@ D:\workspace_jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catali
 		/    : (root-최상위폴더)
 		../  : (상위폴더) 
 	
-	
+----------------------------------------------------------------
+
+	* JSTL(JSP Standard Tag Library) : 자카르타 회사(아파치)에서 제공하는 
+									   자주 사용되는 기능들을 모아놓은 커스텀 태그
+									   
+	  1) CORE 라이브러리 : 기본적인 기능(변수, 출력, 조건문, 반복문, 페이지 이동...)
+	  2) Fommatting 라이브러리 : 국제화/형식화 기능(다국어, 날짜, 숫자 형식)
+	  3) DataBase 라이브러리 : SQL 동작 (CRUD)
+	  4) XML 라이브러리 : XML 코드 처리
+	  	  
+	 <%@ taglib	prefix="접두사" uri="태그의 주소" %>
+	  
+	 <jsp:forward> (액션태그)
+	 
+	 <c:out> 출력
+	 <c:set><c:remove> 변수 설정, 삭제
+	 <c:if><c:choose><c:when><c:otherwise> 제어문
+	 <c:forEach><c:forEachTokens> 반복문
+		 
+	 	  
 	
 	
 	
