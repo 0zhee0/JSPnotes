@@ -1,0 +1,120 @@
+MVC.txt
+
+model2 방식으로 개발(디자인 영역과 비지니스로직의 분리)
+	MVC 패턴 활용
+	
+	* MVC 패턴
+	  Model : 비지니스 로직처리 (디비 사용) / .java파일 (Plan Old Java Object)
+	  View : 화면 UI (디비 사용 x) / .jsp
+	  Controller : model, view 사이의 연결 / .java (Servlet)
+	
+	사용자 요청 ->	web.xml	  ->  C  < - >  M < - > Mysql/Oracle
+				  (배포서술자)	  |
+				  				  V
+				  				  
+	사용자 요청 ->	web.xml	  ->  FC  < - >  M[ C / M(DAO) ] < - > Mysql/Oracle
+			      (배포서술자)	  |
+			  				  	  V
+	
+	* 관심사의 분리 => 일을 따로한다. 하나의 목표를 위해서
+		=> 좋은 코드	
+		
+------------------------------------------------------------------------------		
+	* 추상클래스 : 객체를 혼자서 생성할 수 없는 클래스(자생력이 없음)
+					=> 상속 관계를 사용해서 객체를 사용
+	*  추상메서드 : body{}가 없는 메서드 => 실행할 코드가 없는 메서드(실행X, 호출하면 안됨)
+				public abstract void method();
+				
+	* 상속 관계를 사용할 경우 반드시 추상메서드는 오버라이딩 해서 사용(강제성)
+				public void method(){
+				
+				}	
+			
+	abstract class 클래스명 {
+		변수, 상수
+		메서드, 추상메서드
+	}
+	
+	* 인터페이스(interface)	
+		
+	  interface 인터페이스명{
+	  		상수
+	  		추상메서드
+	  }
+		
+		
+-------------------------------------------------------------------------
+	<!-- 한글처리 필터 설정하기 -->
+		<filter>
+			<filter-name>Set Character Encoding</filter-name>
+			<filter-class></filter-class>
+			<init-param></init-param>
+		</filter>
+		
+		<filter-mapping>
+			<filter-name>Set Character Encoding</filter-name>
+			<url-pattern>/*</url-pattern>
+		</filter-mapping>
+	<!-- 한글처리 필터 설정하기 -->	
+		
+--------------------------------------------------------------------------
+
+	* Connection Pool (커넥션풀)
+	https://commons.apache.org/
+	[필요 API 설치]
+	commons-collections4-4.4.jar		
+	commons-dbcp2-2.9.0.jar	
+	commons-pool2-2.11.1.jar	
+	
+	* CP은 끊임없이 생성되는 커넥션의 문제 해결 기술
+	  => 성능 저하 (많은 데이터)
+	  => 컨테이너(tomcat)당 1개의 커넥션을 사용
+	  => 컨테이너당 자동지원 수행(커넥션풀을 백터에 저장관리)
+	
+		
+		CP : [con][con][con][con][con][con] {임시con}
+		
+		1) service() 메서드당 1개씩 할당(대여-반납)
+		2) 커넥션 개수 제한(웨이팅)
+		3) 커넥션 관리자가 객체 모두 사용 시 자원 해제(회수)
+	
+		작업순서
+		1. 웹 페이지 요청(DB사용)
+		2. 할당될 커넥션이 있는지 체크(커넥션풀)
+		3-1. 커넥션이 있을 때
+		  4. 커넥션 객체 할당(대여)
+		  5. 커넥션 객체 사용(pstmt,execute()...)
+		  6. 커넥션 객체 반납
+		  
+		3-2. 커넥션이 없을 때
+		  4. 할당될 객체가 없음
+		  5. 객체 반환 대기 / 커넥션 객체 생성 (임시)
+	
+	
+<Context>
+	<Resource 
+	  name="자원의 이름"
+	  auth="자원관리자, Application/Container"
+	  type="리소스를 처리할 수 있는 자바타입"
+	  driveClassName="JDBC 드라이버 주소"
+	  username="DB ID"
+	  password="DB PW"
+	  url="DB 접속 주소"
+	  maxWait="최대 대기 시간"
+	/>
+</Context>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+			  				  	  
