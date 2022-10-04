@@ -30,12 +30,3 @@ public class ExServlet1 extends HttpServlet{
 
 
 
-
-
-
-
-
-
-
-
-
