@@ -16,5 +16,7 @@
        //response.sendRedirect("./board");
        //response.sendRedirect("./test.bo");
 //        response.sendRedirect("./BoardWrite.bo");
-       response.sendRedirect("./boardList.bo");    
+     	  response.sendRedirect("./BoardList.bo");    
+//        response.sendRedirect("./BoardUpdate.bo"); // (X) 이렇게 바로 실행하면 안된다.
+       	// 젤 첫번째 동작이 전달되는 페이지 정보를 받아야하는데 여기부터 실행하면 그럴수가 없다.
      %>

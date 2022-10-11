@@ -78,7 +78,14 @@
 	
 	// select.jsp 페이지로 이동
 	response.sendRedirect("select.jsp");
+	
 	%>
-
+	
+	<!-- 실행 시 기능에 따라 쿼리구문을 두가지로 구별할 수 있다.
+		1. DB 조작하는 구문
+			-> pstmt.executeUpdate() : insert, update, delete에 사용
+		2. DB 조작없이 값만 사용하는 구문
+			-> pstmt.executeQuery() : select에 사용
+	 -->
 </body>
 </html>

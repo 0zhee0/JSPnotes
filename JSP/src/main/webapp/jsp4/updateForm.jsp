@@ -14,7 +14,7 @@
 	<h1>updateForm.jsp</h1>
 	
 	<h2> 정보 수정 페이지 </h2>
-	<!-- 	idx=3인 사람의 정보를 가져와서 화면에 출력 -->
+	<!-- idx=3인 사람의 정보를 가져와서 화면에 출력 -->
 	
 	<%
 		// 디비연결정보 (상수)
@@ -39,9 +39,9 @@
 		// 4. SQL 실행
 		ResultSet rs = pstmt.executeQuery(); // ResultSet에 저장해야하는 거 잊지말기!
 		
-		// 전역변수로..
-		String name = "";
-		int age = 0;
+		// 전역변수로.. 
+		String name = "";		// if 문 안에 변수 선언해서 지역변수로 사용하게되면
+		int age = 0;			// form 태그에 value값에 name값을 넣을 수 없다(오류발생)
 		
 		// 5. 데이터 처리
 		if(rs.next()){ // 특정값 하나만 들고올거니까 while말고 if쓰자
@@ -53,8 +53,8 @@
 	
 	
 	<form action="updatePro.jsp" method="post">
-		<input type="hidden" name="idx" value="3"><br>
-		이름 : <input type="text" name="name" value="<%=name %>"><br>
+		<input type="hidden" name="idx" value="3"><br> <!-- idx=3인 사람의 정보를 가져오기 hidden 속성사용 -->
+		이름 : <input type="text" name="name" value="<%=name %>"><br> <!-- value값은 데이터처리 변수값 -->
 		나이 : <input type="text" name="age" value="<%=age %>"><br>
 <!-- 		성별 : <input type="text" name="gender"><br> -->
 <!-- 		주민번호 : <input type="text" name="jumin"><br> -->

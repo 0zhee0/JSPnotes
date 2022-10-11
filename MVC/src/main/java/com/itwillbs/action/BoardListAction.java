@@ -45,7 +45,7 @@ public class BoardListAction implements Action {
 		////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		// 디비에 전체 글 리스트 가져오기
-		ArrayList boardListAll= dao.getBoardList(); 
+		ArrayList boardListAll= dao.getBoardList(startRow, pageSize); 
 					// 글정보를 저장한 어레이리트스를 리턴할거라서 ArrayList 객체에 저장하기
 //		System.out.println(" M : " + boardListAll); // 웬만하면 주석처리하기
 													// 콘솔에 글 내용 다보여서 자리 x
