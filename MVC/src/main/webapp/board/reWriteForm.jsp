@@ -13,7 +13,7 @@
 
 	<fieldset>
 		<form action="./BoardReWriteAction.bo?PageNum=${param.pageNum }" method="post">
-			<input type="hidden" name="bno" value="${param.bno }">
+			<input type="hidden" name="bno" value="${param.bno }"> 	 <!-- 디비가 아니라 주소줄에서 넘어오는 거라 param-->
 			<input type="hidden" name="re_ref" value="${param.re_ref }">
 			<input type="hidden" name="re_lev" value="${param.re_lev }">
 			<input type="hidden" name="re_seq" value="${param.re_seq }">

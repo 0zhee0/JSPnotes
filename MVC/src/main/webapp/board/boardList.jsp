@@ -49,8 +49,8 @@
 				${dto.subject }
 				<c:if test="${dto.file != null }">
 				<img src="./img/save.png" width="15" height="15">
-				</c:if>
-				</a>
+				</c:if>		<!-- / : 최상위, ./ : 현재디렉토리, ../ : 현재디렉토리의 상위 디렉토리 -->
+				</a>		<!-- ./js : 현재 위치 기준 하위 js파일, ..js/ : 현재 위치 기준 상위 파일의 하위 js 파일 -->
 			</td>
 			<td>${dto.name }</td>
 			<td>${dto.readcount }</td>

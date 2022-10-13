@@ -52,11 +52,15 @@
 	  	  <td colspan="3"><%=dto.getContent() %></td>
 	  </tr>
 	  <tr>
-	  	  <td>첨부파일</td>
-	  	  <td colspan="3">
+	  	  <td>첨부파일</td>		<!-- 첨부파일명클릭 시 다운로드 되도록 하는 동작 (2가지버전) -->
+	  	  <td colspan="3">	
 	  	  	<a href="../file/fileDown1.jsp?file_name=<%=dto.getFile()%>"><%=dto.getFile() %></a>
+	  	  		<!-- ../ : 상위폴더로의 이동인데 그러면 webapp폴더를 의미한다. /
+	  	  			 이 경우는 실행하면 콘솔창에 filePath경로가 뜬다(서버에 저장되어있는 파일을 불러오는 것 -->
 	  	  	<a href="../upload/<%=dto.getFile()%>"><%=dto.getFile() %></a>
-	  	  </td>
+	  	  		<!-- upload 파일로 가서 업로드한 사진을 보여주라는 방법
+	  	  			 이 경우 콘솔창에 아무것도 안뜸  -->
+	  	  </td>			
 	  </tr>	
 	  
 	   <tr>

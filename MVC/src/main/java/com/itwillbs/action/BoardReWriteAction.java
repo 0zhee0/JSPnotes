@@ -42,7 +42,7 @@ public class BoardReWriteAction implements Action {
 		ActionForward forward = new ActionForward();
 		// BoardList로 이동할 때 pageNum 넘겨주기
 		forward.setPath("./BoardList.bo?=pageNum="+pageNum);
-		forward.setRedirect(true); // sendRedirect 방식
+		forward.setRedirect(true); // sendRedirect 방식 // [패턴1]이라서 true
 			
 		return forward;
 	}

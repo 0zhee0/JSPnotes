@@ -23,6 +23,13 @@
      </fieldset>
      
      
+     <!-- 
+     		 파일 업로드를 하려면?
+			 form 태그를 사용!
+			 전달 방식은 post방식
+			 enctype="multipart/form-data"
+			<form emthod="post"  enctype="multipart/form-data">
+      -->
      
      
      

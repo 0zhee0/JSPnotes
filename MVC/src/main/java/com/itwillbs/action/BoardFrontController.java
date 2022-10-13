@@ -100,6 +100,7 @@ public class BoardFrontController extends HttpServlet{
 				e.printStackTrace();
 			} 
 		} // BoardContent.bo
+		
 		else if(command.equals("/BoardUpdate.bo")) {
 			System.out.println(" C : /BoardUpdate.bo 호출");
 			System.out.println(" C : [패턴3] DB사용 O, VIEW 출력");
@@ -116,6 +117,7 @@ public class BoardFrontController extends HttpServlet{
 			}
 			
 		}// BoardUpdate.bo
+		
 		else if(command.equals("/BoardUpateProAction.bo")) {
 			System.out.println(" C : /BoardUpateProAction.bo 호출");
 			System.out.println(" C : [패턴2] DB사용 O, 페이지이동(화면전환)");

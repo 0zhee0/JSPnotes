@@ -16,11 +16,11 @@ public class BoardFileWriteAction implements Action {
 		// 업로드 가상폴더 생성 /upload
 		// 첨부파일 크기 지정 / 10 MB
 		
-		String realPath = request.getRealPath("/upload");
-		System.out.println(" M : realPath : "+realPath);
+		String realPath = request.getRealPath("/upload"); // 이 함수말고 다른 함수 사용하라는 의미 근데 무시하고 사용
+		System.out.println(" M : realPath : "+realPath);			// 구식 함수
 		int maxSize = 10 * 1024 * 1024;
 		
-		// 파일어로드 ->  파일업로드 객체 생성(MultipartRequest)
+		// 파일업로드 ->  파일업로드 객체 생성(MultipartRequest)
 		MultipartRequest multi
 					= new MultipartRequest(
 							request, 
@@ -29,6 +29,17 @@ public class BoardFileWriteAction implements Action {
 							"UTF-8",
 							new DefaultFileRenamePolicy()
 							);
+		
+		/*
+		 *  * 객체 생성 == 파일 업로드
+ 			MultipartRequest multi = new MultipartRequest(
+          	request(폼태그의 정보),
+          	path(파일 업로드될 경로(서버의 경로)), 
+          	maxSize(파일 업로드 크기),
+          	"UTF-8"(파일명 인코딩),
+          	new DefaultFileRenamePolicy() (파일 이름 중복 처리객체)
+         );
+		 */
 		
 		System.out.println(" M : 첨부파일 업로드 성공! ");
 		
@@ -49,8 +60,8 @@ public class BoardFileWriteAction implements Action {
 		// 페이지 이동(정보저장)
 		ActionForward forward = new ActionForward();
 		forward.setPath("./BoardList.bo");
-		forward.setRedirect(true); // sendRedirect 방식
-
+		forward.setRedirect(true); // sendRedirect 방식 // 이미 위에 파일 업로드 다돼서!
+									
 		return forward;
 	}
 

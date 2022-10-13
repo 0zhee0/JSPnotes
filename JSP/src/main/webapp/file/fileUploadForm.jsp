@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>﻿fileUploadForm.jsp</h1>
-	
+					
 	<form action="fileUploadPro.jsp" method="post" enctype="multipart/form-data">
 		이름 : <input type="text" name="name"> <br>
 		메시지 : <input type="text" name="msg"> <br>

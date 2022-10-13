@@ -6,7 +6,7 @@ public class ActionForward {
 	private String path;	// 이동주소
 	private boolean isRedirect;		// 이동방법
 	//   이동방법 - true : redirect방식 이동 
-	//            - false : forward방식 이동
+	//            - false : forward방식 이동 , request영역에 저장한것들 들고갈수있음
 	
 	public ActionForward() {
 		System.out.println(" 페이지 이동 준비 (티켓준비)");
