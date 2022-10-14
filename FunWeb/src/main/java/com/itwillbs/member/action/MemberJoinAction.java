@@ -3,6 +3,7 @@ package com.itwillbs.member.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itwillbs.member.db.MemberDAO;
 import com.itwillbs.member.db.MemberDTO;
 
 public class MemberJoinAction implements Action {
@@ -36,11 +37,16 @@ public class MemberJoinAction implements Action {
 		System.out.println(" M : dto : " + dto);
 		
 		// DAO 객체 생성 - 회원가입 메서드 호출
+		MemberDAO dao = new MemberDAO();
+		dao.memberJoin(dto);
+		System.out.println(" M :  회원가입 성공!");
 		
-		// 페이지 이동
-		
-		
-		return null;
+		// 페이지 이동(준비)
+		ActionForward forward = new ActionForward();
+		forward.setPath("./MemberLogin.me"); // 전달방식은.. 판단 기준은.. 회원가입해서 내가 이동할 때
+		forward.setRedirect(true);				// 가상주소에서 가상주소로의 이동이라서 sendRedirect 방식으로 이동
+		// 1단계 매핑
+		return forward; // 컨트롤러 forward로 이동한 뒤 거기서 3단계 페이지 이동 진행하게 한다.
 	}
 
 }

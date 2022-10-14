@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <header>
 <div id="login">
-	<a href="./member/login.jsp">login</a> | 
+	<a href="./MemberLogin.me">login</a> | 
 	<a href="./MemberJoin.me">join</a>
 </div>
 <div class="clear"></div>

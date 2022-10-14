@@ -24,6 +24,25 @@
 
  </script>
  <![endif]-->
+ <script type="text/javascript">
+ 	function winopen(){
+ 		alert('아이디 중복체크 시작');
+ 		
+ 		// 아이디창에 아이디 입력여부 확인
+ 		if(document.fr.id.value == ""){
+ 			alert('아이디를 입력하세요!');
+ 			document.fr.id.focus();
+ 			return;
+ 		}
+ 		
+ 		// 입력된 아이디 정보
+ 		var inputID = document.fr.id.value;
+ 		
+ 		// 새창열기
+ 		window.open("./MemberIdCheck.me?inputID="+inputID,"","width=400. height=200,top=600,left=500");
+ 		
+ 	}
+ </script>
 </head>
 <body>
 	<div id="wrap">
@@ -47,11 +66,12 @@
 		<!-- 본문내용 -->
 		<article>
 			<h1>회원가입</h1>
-			<form action="./MemberJoinAction.me" method="post" id="join">
+			<form action="./MemberJoinAction.me" method="post" id="join"
+				  name = "fr" onsubmit="alert('데이터 유효성체크 완료');">
 				<fieldset>
 					<legend>기본정보</legend>
 					<label>아이디</label> <input type="text" name="id" class="id">
-					<input type="button" value="dup. check" class="dup"><br>
+					<input type="button" value="중복체크" class="dup" onclick="winopen();"><br>
 					<label>비밀번호</label> <input type="password" name="pw"><br>
 					<label>이름</label> <input type="text" name="name"><br>
 					<label>E-Mail</label> <input type="email" name="email"><br>

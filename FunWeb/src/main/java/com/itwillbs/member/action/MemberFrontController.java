@@ -1,6 +1,7 @@
 package com.itwillbs.member.action;
 
 import java.io.IOException;
+import java.nio.channels.ClosedByInterruptException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -53,9 +54,64 @@ public class MemberFrontController extends HttpServlet{
 				}
 				
 			}
+			else if(command.equals("/MemberLogin.me")) {
+				System.out.println(" C : /MemberLogin.me 호출 ");
+				System.out.println(" C : [패턴1] DB 사용X, view 이동");
+				
+				forward = new ActionForward();
+				forward.setPath("./member/login.jsp");
+				forward.setRedirect(false); // .me(가상) -> .jsp(실제편집) 로 이동하는거라
+			}
+			else if(command.equals("/MemberIdCheck.me")) {
+				System.out.println(" C : /MemberIdCheck.me 호출 ");
+				// 중복체크 버튼 눌렀을 때 확인하고 다시 돌아올거다.
+				// 단순히 뷰를 보여주는 것이므로 패턴 1
+				System.out.println(" C : [패턴1] DB 사용X, view 이동");
+				
+				forward = new ActionForward();
+				forward.setPath("./member/idCheck.jsp");
+				forward.setRedirect(false); // .me(가상) -> .jsp(실제편집) 로 이동하는거라
+			}
+			else if(command.equals("/MemberIdCheckAction.me")) {
+				System.out.println(" C : /MemberIdCheckAction.me 호출");
+				System.out.println(" C : [패턴3] DB 사용O, view 페이지 출력");
+				
+				// MemberIdCheckAction() 객체 생성
+				action = new MemberIdCheckAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			else if(command.equals("/MemberLoginAction.me")) {
+				System.out.println(" C : /MemberLoginAction.me 호출");
+				System.out.println(" C : [패턴2] DB 사용O, 페이지 이동");
+				
+				// MemberLoginAction() 객체 생성
+				action = new MemberLoginAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 			
+				
+				
 			System.out.println(" C : 2. 가상주소 매핑(패턴 1,2,3) 끝 ");
+				
+
 			
+			
+			
+
+			
+// ----------------------------------------------------------------------------------------		
 			// 3. 페이지 이동
 			if(forward != null) {
 				if(forward.isRedirect()) { // true
