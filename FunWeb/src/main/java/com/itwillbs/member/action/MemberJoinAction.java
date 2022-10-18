@@ -25,13 +25,13 @@ public class MemberJoinAction implements Action {
 		dto.setAddr(request.getParameter("addr"));
 		dto.setTel(request.getParameter("tel"));
 		
-		String[] birthArr = request.getParameterValues("bitrh");
+		String[] birthArr = request.getParameterValues("birth");
 //		System.out.println("M : birthArr[0] : " + birthArr[0]);
 //		System.out.println("M : birthArr[1] : " + birthArr[1]);
 //		System.out.println("M : birthArr[2] : " + birthArr[2]);
 		
-		if(birthArr != null) { // 99.1.2
-				dto.setBirth(birthArr[0]+"."+birthArr[1]+"."+birthArr[2]);
+		if(birthArr != null) { // 99-1-2
+				dto.setBirth(birthArr[0]+"-"+birthArr[1]+"-"+birthArr[2]);
 		}
 		
 		System.out.println(" M : dto : " + dto);

@@ -40,7 +40,7 @@
  		
  		// 새창열기
  		window.open("./MemberIdCheck.me?inputID="+inputID,"","width=400. height=200,top=600,left=500");
- 		
+ 					
  	}
  </script>
 </head>

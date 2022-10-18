@@ -81,12 +81,12 @@ border-bottom-style: dotted;border-bottom-color: #999}
 테두리아래색 #999*/
 article table#notice td.left{text-align: left;}
 /*글자정렬 left*/
-article th.tno{width: 50px;
+article th.tno{width: 100x;
 border-top-left-radius:5px;
 border-bottom-left-radius:5px;
 }/*너비 50px 
 왼쪽위 둥글게5px 왼쪽아래 둥글게5px*/
-article th.ttitle{width: 400px; letter-spacing: 0.7em}
+article th.ttitle{width: 150px; letter-spacing: 0.7em}
 /*너비 400px 문자간격 0.7em*/
 article th.twrite{width: 100px;}
 /*너비 100px*/
@@ -103,6 +103,14 @@ float: right;}
 #table_search .input_box{height: 20px; width: 200px;
 border-radius:10px;background-color: #FEFDED;
 border: 1px solid #333}
+
+
+.btn{padding: 2px;margin: 0 0 0 5px;
+width: 90px;height: 23px;border: 1px solid #999;
+border-radius:10px;color: #FFF;
+background-image: url("../images/center/t_back.jpg");
+background-repeat: repeat-x;
+background-position: center center}
 /*높이 20px 너비 200px
 테두리 1px solid #333 테두리둥글게 10px 배경색#FEFDED*/
 #table_search .btn{padding: 2px;margin: 0 0 0 5px;
@@ -111,6 +119,8 @@ border-radius:10px;color: #FFF;
 background-image: url("../images/center/t_back.jpg");
 background-repeat: repeat-x;
 background-position: center center}
+
+
 /*안여백 2px 밖여백 0 0 0 5px
 너비 90 높이 23 테두리 1 solid #999 테두리둥글게 10px
 글자색 #FFF 
