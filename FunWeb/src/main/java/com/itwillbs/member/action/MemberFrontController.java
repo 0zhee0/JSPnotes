@@ -2,6 +2,7 @@ package com.itwillbs.member.action;
 
 import java.io.IOException;
 import java.nio.channels.ClosedByInterruptException;
+import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,6 +55,7 @@ public class MemberFrontController extends HttpServlet{
 				}
 				
 			}
+			
 			else if(command.equals("/MemberLogin.me")) {
 				System.out.println(" C : /MemberLogin.me 호출 ");
 				System.out.println(" C : [패턴1] DB 사용X, view 이동");
@@ -61,7 +63,8 @@ public class MemberFrontController extends HttpServlet{
 				forward = new ActionForward();
 				forward.setPath("./member/login.jsp");
 				forward.setRedirect(false); // .me(가상) -> .jsp(실제편집) 로 이동하는거라
-			}
+			} // MemberLogin.me
+			
 			else if(command.equals("/MemberIdCheck.me")) {
 				System.out.println(" C : /MemberIdCheck.me 호출 ");
 				// 중복체크 버튼 눌렀을 때 확인하고 다시 돌아올거다.
@@ -71,7 +74,8 @@ public class MemberFrontController extends HttpServlet{
 				forward = new ActionForward();
 				forward.setPath("./member/idCheck.jsp");
 				forward.setRedirect(false); // .me(가상) -> .jsp(실제편집) 로 이동하는거라
-			}
+			} // MemberIdCheck.me
+			
 			else if(command.equals("/MemberIdCheckAction.me")) {
 				System.out.println(" C : /MemberIdCheckAction.me 호출");
 				System.out.println(" C : [패턴3] DB 사용O, view 페이지 출력");
@@ -85,7 +89,8 @@ public class MemberFrontController extends HttpServlet{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}
+			} //MemberIdCheckAction.me
+			
 			else if(command.equals("/MemberLoginAction.me")) {
 				System.out.println(" C : /MemberLoginAction.me 호출");
 				System.out.println(" C : [패턴2] DB 사용O, 페이지 이동");
@@ -99,10 +104,125 @@ public class MemberFrontController extends HttpServlet{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}
+			} //MemberLoginAction.me
 			
+			else if(command.equals("/Main.me")) {
+				System.out.println(" C : /Main.me 호출 ");
+				System.out.println(" C : [패턴1] DB 사용X, view 이동");
 				
+				forward = new ActionForward();
+				forward.setPath("./main/main.jsp");
+				forward.setRedirect(false);
+			} //Main.me
+			
+			else if(command.equals("/MemberLogout.me")) {
+				System.out.println(" C : /MemberLogout.me 호출 ");
+				System.out.println(" C : [패턴2] 비지니스로직, 페이지 이동");
 				
+				// MemberLogoutAction() 객체 생성
+				action = new MemberLogoutAction();
+				
+				try {
+					forward  = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} //MemberLogout.me
+			
+			else if(command.equals("/MemberInfo.me")) {
+				System.out.println(" C : /MemberInfo.me 호출 ");
+				System.out.println(" C : [패턴3] DB 사용O, view 페이지 출력");
+				
+				// MemberInfoAction() 객체 생성
+				action = new MemberInfoAction();
+				
+				try {
+					forward  = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
+			}	//MemberInfo.me
+			
+			else if(command.equals("/MemberUpdate.me")) {
+				System.out.println(" C : /MemberUpdate.me 호출 ");
+				System.out.println(" C : 패턴3) DB사용o, 페이지출력");
+				
+				// MemberUpdateAction
+				action = new MemberUpdateAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else if(command.equals("/MemberUpdatePro.me")) {
+				System.out.println(" C : /MemberUpdatePro.me 호출 ");
+				System.out.println(" C : 패턴2) DB사용 O, 페이지이동");
+				
+				// MemberUpdateProAction() 객체 
+				action = new MemberUpdateProAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else if(command.equals("/MemberDelete.me")) {
+				System.out.println(" C : /MemberDelete.me 호출 ");
+				System.out.println(" C : 패턴1) DB사용X, view페이지이동");
+				
+				forward = new ActionForward();
+				forward.setPath("./member/delete.jsp");
+				forward.setRedirect(false);
+			}
+			else if(command.equals("/MemberDeleteAction.me")) {
+				System.out.println(" C : /MemberDeleteAction.me 호출 ");
+				System.out.println(" C : 패턴2) DB사용o, 페이지 이동");
+				
+				// MemberDeleteAction()
+				action = new MemberDeleteAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else if(command.equals("/MemberAdmin.me")) {
+				System.out.println(" C : /MemberAdmin.me 호출");
+				System.out.println(" C : 패턴3) DB사용o, view출력");
+				
+				//	MemberAdminAction() 객체 
+				action = new MemberAdminAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}	//MemberAdmin.me
+			
+			else if(command.equals("/MemberAdminDeleteAction.me")) {
+				System.out.println(" C : /MemberDeleteAction.me 호출 ");
+				System.out.println(" C : 패턴2) DB사용o, 페이지 이동");
+				
+				action = new MemberAdminDeleteAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}	// MemberAdminDeleteAction.me
+			
+			
+			
+			
+			
+			
 			System.out.println(" C : 2. 가상주소 매핑(패턴 1,2,3) 끝 ");
 				
 
