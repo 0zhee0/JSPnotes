@@ -28,3 +28,7 @@ public class AdminGoodsRemoveAction implements Action {
 	}
 
 }
+
+
+
+

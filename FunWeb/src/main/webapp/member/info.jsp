@@ -30,8 +30,7 @@
  <script type="text/javascript">
  </script>
  
- 
-</head>
+</head>     
 <body>
 	<div id="wrap">
 		<!-- 헤더들어가는 곳 -->

@@ -45,7 +45,6 @@
 </nav>
 <!-- 왼쪽메뉴 -->
 
-
 <%
 	/* 로그인 제어 */
 	String id = (String) session.getAttribute("id");
@@ -171,3 +170,5 @@ ${dto }
 </div>
 </body>
 </html>
+
+

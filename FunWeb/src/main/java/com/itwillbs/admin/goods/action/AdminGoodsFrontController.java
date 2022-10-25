@@ -114,8 +114,7 @@ public class AdminGoodsFrontController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} //AdminGoodsRemove.ag
-		
+		} //AdminGoodsRemove.ag       
 		
 		
 		

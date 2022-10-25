@@ -42,3 +42,5 @@ public class AdminGoodsListAction implements Action {
 		return forward;
 	}
 }
+
+

@@ -241,6 +241,6 @@ public class AdminGoodsDAO {
 	// 상품정보 삭제메서드 - adminRemoveGoods(gno)
 	
 	
-	
-	
 }
+
+
