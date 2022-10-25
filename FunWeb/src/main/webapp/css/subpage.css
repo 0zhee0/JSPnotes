@@ -81,16 +81,16 @@ border-bottom-style: dotted;border-bottom-color: #999}
 테두리아래색 #999*/
 article table#notice td.left{text-align: left;}
 /*글자정렬 left*/
-article th.tno{width: 100x;
+article th.tno{width: 50x;
 border-top-left-radius:5px;
 border-bottom-left-radius:5px;
 }/*너비 50px 
 왼쪽위 둥글게5px 왼쪽아래 둥글게5px*/
-article th.ttitle{width: 150px; letter-spacing: 0.7em}
+article th.ttitle{width: 90px; letter-spacing: 0.7em}
 /*너비 400px 문자간격 0.7em*/
 article th.twrite{width: 100px;}
 /*너비 100px*/
-article th.tdate{width: 50px;}
+article th.tdate{width: 70px;}
 /*너비 50px*/
 article th.tread{width: 50px;
 border-top-right-radius:5px;

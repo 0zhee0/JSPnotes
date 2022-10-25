@@ -51,6 +51,9 @@
 				
 			<c:if test="${id.equals('admin') }">
 				<li><a href="./MemberAdmin.me">회원정보 관리</a></li>
+				<li><a href="./AdminGoodsAdd.ag">쇼핑몰 상품등록</a></li>
+				<li><a href="./AdminGoodsList.ag">상품리스트(관리자)</a></li>
+				
 			</c:if>
 			</ul>
 		</nav>

@@ -47,7 +47,7 @@
 <body>
 	<div id="wrap">
 		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/top.jsp" />
+			<jsp:include page="../inc/top.jsp" />
 		<!-- 추가할 페이지를 컴파일 후 페이지를 추가 -->
 		<!-- 헤더들어가는 곳 -->
 
@@ -115,7 +115,7 @@
 
 		<div class="clear"></div>
 		<!-- 푸터들어가는 곳 -->
-		<jsp:include page="../inc/bottom.jsp"></jsp:include>
+			<jsp:include page="../inc/bottom.jsp"></jsp:include>
 		<!-- 푸터들어가는 곳 -->
 	</div>
 </body>

@@ -79,8 +79,10 @@ public class BoardListAction implements Action {
 		
 		// 직접출력 -> 위임(대신출력) : view (.jsp 페이지)에서 출력
 		// Action -> jsp 페이지 정보 전달 (둘의 연결고리인 request 영역객체에 저장)
-		request.setAttribute("boardListAll", boardListAll); // 디비에 가져온 걸 어레이리스트에 담아서 출력하겠다.
-//		request.setAttribute("boardListAll", dao.getBoardList()); // 디비에서 가져온 걸 그대로 토스하겟다.
+//		request.setAttribute("boardListAll", boardListAll); // 디비에 가져온 걸 어레이리스트에 담아서 출력하겠다.
+//				// 정보를 추가적으로 담아서 보낼대 db에서 가져오는 것 말고도  (동작은 같음)
+		
+		request.setAttribute("boardListAll", dao.getBoardList()); // 디비에서 가져온 걸 그대로 토스하겟다.
 		
 		// 페이징처리 정보 저장 // 객체에 따로 저장도 가능 우리가 dto처럼 다른 객체에 담아서 사용도 할 수 있다.
 		request.setAttribute("pageNum", pageNum);
