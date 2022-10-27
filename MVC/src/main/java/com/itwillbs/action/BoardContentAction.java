@@ -11,9 +11,13 @@ public class BoardContentAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : BoardContentAction_execute() 호출");
+		System.out.println(" M : 글목록(list.jsp)에서 글제목 눌렀을 때 내용을 보여주기위한 동작 중");
 		
 		// 전달정보(파라미터) 저장
-		int bno = Integer.parseInt(request.getParameter("bno"));
+		// boardList.jsp 에서 제목컬럼부분에 <a href="./BoardContent.bo?bno=${dto.bno}&pageNum=${pageNum}"> 
+		// a링크 주소줄에서 물음표(?) 뒤에 bno와 pageNum를 입력하여 다음 페이지에 전달할 수 있도록 설정함.
+		// 그래서 이 페이지에서 bno와 pageNum을 받는 중.
+		int bno = Integer.parseInt(request.getParameter("bno")); // From boardList.jst
 		String pageNum = request.getParameter("pageNum");
 		
 		System.out.println("M : bno : " + bno + ", pageNum : " + pageNum);
@@ -33,10 +37,10 @@ public class BoardContentAction implements Action {
 		
 		// 페이지 이동(준비)
 		ActionForward forward = new ActionForward();
-		forward.setPath("./board/boardContent.jsp");
-		forward.setRedirect(false); 
+		forward.setPath("./board/boardContent.jsp"); // 해당 페이지가 글 제목눌렀을 때 글 내용 보여주는 동작페이지라서!
+		forward.setRedirect(false); // .bo -> .jsp
 
-		return forward; // 리턴값 forward는 컨트롤러 이동한다. 
+		return forward; // 리턴값 forward를 통해 해당 페이지의 정보들을 담아서 컨트롤러로 이동한다. 
 	}
 
 }

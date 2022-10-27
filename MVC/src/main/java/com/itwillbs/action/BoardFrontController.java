@@ -101,7 +101,7 @@ public class BoardFrontController extends HttpServlet{
 			} 
 		} // BoardContent.bo
 		
-		else if(command.equals("/BoardUpdate.bo")) {
+		else if(command.equals("/BoardUpdate.bo")) { // boardContent에서 수정버튼 눌렀을 때
 			System.out.println(" C : /BoardUpdate.bo 호출");
 			System.out.println(" C : [패턴3] DB사용 O, VIEW 출력");
 						// update페이지이동하면서 화면에 뷰가 보여져야하는데 DB도 써야한다. => 패턴3

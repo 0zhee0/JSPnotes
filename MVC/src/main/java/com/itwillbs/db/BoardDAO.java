@@ -312,6 +312,8 @@ public class BoardDAO {
 						dto.setRe_seq(rs.getInt("re_seq"));
 						dto.setReadcount(rs.getInt("readcount"));
 						dto.setSubject(rs.getString("subject"));
+						
+						// 특정 bno에 해당하는 정보값을 하나만 받을거라서 dto에만 담는다.
 					}
 					
 					System.out.println(" DAO : 글 정보 1개 저장완료! ");
