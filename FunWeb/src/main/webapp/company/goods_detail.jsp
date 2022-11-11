@@ -50,8 +50,9 @@
  			if(isMove){ // true=ok 일 때
  				// 장바구니 페이지 이동
  				alert('장바구니 페이지로 이동');
- 				document.fr.action = "./BasketAddAction.ba";
- 				document.fr.submit();
+ 				document.fr.action="./BasketAddAction.ba";
+	 			document.fr.isMove.value=isMove; // true
+	 			document.fr.submit();
  				
  			} else{ // false=cancle 일 때
  				// 계속 쇼핑하기 이동
@@ -60,6 +61,11 @@
  				// ./BasketAddAction.ba 라는 가상주소로 이동하게 한 다음에 작업을 완료하고 'GoodsList.go'로 보내야한다.
  				// + 쇼핑정보
  				// 근데 지금은 왜 저장 안 하고 넘어가지, 근데 이거 저장해두려면 폼태그에 또 키값 지정해두고 하는 방법이 있댔음..
+ 				
+ 				document.fr.action="./BasketAddAction.ba";
+	 			document.fr.isMove.value=isMove; // false
+	 			document.fr.submit();
+ 				
  				location.href='GoodsList.go';	
  				//location.href='./BasketAddAction.ba';
  			}			
@@ -81,7 +87,7 @@
  		
  			alert('구매 페이지 이동(미구현!)');
  			
- 	}
+ 	}//isOrder
  	</script>
  
  
@@ -113,6 +119,7 @@
 	
   <form action="" method="post" name="fr">
   	<input type="hidden" name="gno" value="${dto.gno }"> <!-- 자스코드에서 장바구니 페이지 이동코드 작성 시에 gno 식별위한 기능 추가함 -->
+  	<input type="hidden" name="isMove" value=""> <!-- 장바구니로갈건지말건지이동정보만저장한다. -->
   
 	<table border="1" id="notice">  <!-- id="notice" 지웟다가 생성했다가 실행해서 비교해보기 -->
 		<tr>
@@ -147,8 +154,8 @@
 			<h2>총 가격 : <fmt:formatNumber value="${dto.price * 1 }"/>원</h2>
 			
 			<h2> 
-	        <a href="javascript: isBasket('장바구니');">[장바구니 담기]</a>    <!-- head태그안에서 자스코드 작성완. -->
-	        <a href="javascript: alert('바로구매');">[바로 구매하기]</a>
+	        <a href="javascript: isBasket();">[장바구니 담기]</a>        <!-- head태그안에서 자스코드 작성완. -->
+	        <a href="javascript: isOrder();">[바로 구매하기]</a>
 	       </h2>
 	          
 	      </td>

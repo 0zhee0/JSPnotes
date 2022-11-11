@@ -52,11 +52,21 @@ public class BasketAddAction implements Action{
 			System.out.println(" M : 장바구니 추가 ");
 		}
 		
-		// 페이지 이동	
-		forward.setPath("./BasketList.ba");
-		forward.setRedirect(true); // request 영역에 있는 정보를 가져가지도 않을거고 그냥 주소만 옮길겨
-		
-		return forward;
-	}
+		// 사용자의 선택에 따라서 장바구니 페이지로 이동/상품리스트 이동
+				String isMove = request.getParameter("isMove");
+				System.out.println(" M : isMove :"+isMove);
+				
+				if(isMove.equals("true")) {
+					// 페이지 이동	
+					forward.setPath("./BasketList.ba");
+					forward.setRedirect(true);
+				}else {
+					// 페이지 이동	
+					forward.setPath("./GoodsList.go");
+					forward.setRedirect(true);
+				}
+				
+				return forward;
+			}
 
-}
+		}
