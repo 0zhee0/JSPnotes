@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.itwillbs.admin.goods.db.GoodsDTO;
+import com.itwillbs.basket.db.BasketDTO;
 
 public class GoodsDAO {
 	private Connection con = null;
@@ -213,7 +214,30 @@ public class GoodsDAO {
 	}	
 	// 상품 상세정보 조회 - getGoods(gno)
 	
-	
+	// 구매 후 상품 수량변경 - updateAmount() 
+	public void updateAmount(List basketList) {
+		// BasketList 받아오려고 List타입의 객체를 생성했다.
+		
+		try {
+			con = getConnection();
+			
+			for(int i=0; i<basketList.size();i++) {
+				BasketDTO bkDTO = (BasketDTO)basketList.get(i);
+				sql = "update itwill_goods set amount=amount-? where gno=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, bkDTO.getB_g_amount());
+				pstmt.setInt(2, bkDTO.getB_g_num());
+				pstmt.executeUpdate();
+			} // for
+			System.out.println(" DAO : 구매 후 수량 변경 완료!");	
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+	}
+	// 구매 후 상품 수량변경 - updateAmount() 
 
 	
 	

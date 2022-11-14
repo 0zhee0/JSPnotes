@@ -62,6 +62,9 @@
 			<th class="tdate">크기</th>
 			<th class="tread">관리</th>
 		</tr>
+		
+<%-- 		<c:if test="${ basketList != null }"> 오류 발생--%>
+		<c:if test="${ basketList.size() != 0 }">
 									<!-- 한바퀴덜돌게 -1해주기 -->
 		<c:forEach var="i" begin="0" end="${basketList.size()-1 }" step="1">
 		  <%-- <c:set var="goods" value="${goodsList }"/> 이렇게 하면 오류 발생--%>
@@ -84,6 +87,7 @@
 			  </td>
 		    </tr>
 		</c:forEach>
+		</c:if>
 	</table>
 <div id="table_search">
     <input type="button" value="구매하기" class="btn" 

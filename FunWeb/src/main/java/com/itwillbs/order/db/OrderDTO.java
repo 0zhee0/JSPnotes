@@ -2,8 +2,10 @@ package com.itwillbs.order.db;
 
 import java.sql.Timestamp;
 
+import lombok.Data;
+
+@Data
 public class OrderDTO {
-	
 	private int o_num;
 	private String o_trade_num;
 	
@@ -31,4 +33,5 @@ public class OrderDTO {
 	private Timestamp o_date;
 	
 	private int o_status;
+		
 }
