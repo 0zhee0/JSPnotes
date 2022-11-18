@@ -47,11 +47,13 @@
 			<ul>
 				<li><a href="./MemberUpdate.me">회원정보 수정</a></li>
 				<li><a href="./MemberDelete.me">회원정보 삭제</a></li>
+				<li><a href="./OrderList.or">주문 목록</a></li>
 				
 			<c:if test="${id.equals('admin') }">
 				<li><a href="./MemberAdmin.me">회원정보 관리</a></li>
 				<li><a href="./AdminGoodsAdd.ag">쇼핑몰 상품등록</a></li>
 				<li><a href="./AdminGoodsList.ag">상품리스트(관리자)</a></li>
+				<li><a href="./AdminOrderList.ao">주문리스트(관리자)</a></li>
 				
 			</c:if>
 			</ul>
