@@ -56,9 +56,31 @@ public class OrderFrontController extends HttpServlet{
 			
 		} //OrderAddAction.or
 		
+		else if(command.equals("/OrderList.or")) {
+			System.out.println(" C : /OrderList.or 호출 ");
+			System.out.println(" C : [패턴3]");
+			
+			// OrderAddAction() 객체 생성
+			action = new OrderListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} //OrderList.or
 		
-		
-		
+		else if(command.equals("/OrderDetail.or")) {
+			System.out.println(" C : /OrderDetail.or 호출");
+			System.out.println(" C : [패턴3]");
+			
+			// OrderDetailAction
+			action = new OrderDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}//OrderDetail.or
 		
 		
 		

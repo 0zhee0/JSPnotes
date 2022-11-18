@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -143,6 +144,114 @@ public class OrderDAO {
 		
 	}
 	// 주문정보 저장 - addOrder(OrderDTO,BasketList,GoodsList)
+	
+	// 주문목록 - getOrderList(id)
+	public List<OrderDTO> getOrderList(String id){
+		List<OrderDTO> orderList = new ArrayList<OrderDTO>();
+									// 오른쪽에서는 명시안해도 상관없지만 명시해주는 걸 권장한다.
+		try {
+			con = getConnection();
+			sql = "SELECT o_trade_num, o_g_name, o_g_amount, o_g_size, "
+					+ "o_g_color, o_sum_money, o_trans_num, o_date, "
+					+ "o_status, o_trade_type "
+					+ "FROM itwill_order "
+					+ "where o_m_id=?"
+					+ "GROUP BY o_trade_num "
+					+ "ORDER BY o_trade_num DESC";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			// 값이 여러개 나올것이다. 
+			// 상품 두개를 샀는데 한번에 두 개를 주문했잖아. 근데 주문번호 같은 것들은 묶어놔서 하나로 보일 수 있는데
+			// 실제로 상품은 여러개 일수 있다. 그렇기 때문에 
+			
+			while(rs.next()) {
+				// DB(rs) -> OrderDTO 저장 -> OrderList 저장
+				
+				// db에 있는 값들을 꺼내서 dto에 저장할거다.
+				OrderDTO dto = new OrderDTO();
+				
+				dto.setO_trade_num(rs.getString(1)); // 인덱스그냥한번불러봄
+				dto.setO_g_name(rs.getString(2));
+				dto.setO_g_amount(rs.getInt(3));
+				dto.setO_g_color(rs.getString(4));
+				dto.setO_g_size(rs.getString(5));
+				dto.setO_sum_money(rs.getInt(6));
+				dto.setO_trans_num(rs.getString(7));
+				dto.setO_date(rs.getTimestamp(8));
+				dto.setO_status(rs.getInt(9));
+				dto.setO_trade_type(rs.getString(10));
+				
+				// dto에 담아놓은 값들을 이제 배열에 담자.
+				orderList.add(dto);
+			} // while
+			
+			System.out.println(" DAO : "+id+"님 주문정보 저장완료!");
+			System.out.println(" DAO : " + orderList.size());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return orderList; // orderList라는 가로길이(행) 배열을 리턴하게 된다.
+	} 
+	// 주문목록 - getOrderList(id)
+	
+	// 주문 상세정보 - orderDetail(trade_num)
+	public List<OrderDTO> orderDetail(String trade_num){
+		List<OrderDTO> orderList = new ArrayList<OrderDTO>();
+		
+		try {
+			con = getConnection();
+			sql = "select * from itwill_order where o_trade_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, trade_num);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				OrderDTO dto = new OrderDTO();
+				
+				dto.setO_date(rs.getTimestamp("o_date"));
+				dto.setO_g_amount(rs.getInt("o_g_amount"));
+				dto.setO_g_color(rs.getString("o_g_color"));
+				dto.setO_g_size(rs.getString("o_g_size"));
+				dto.setO_g_name(rs.getString("o_g_name"));
+				dto.setO_trade_num(rs.getString("o_trade_num"));
+				dto.setO_trans_num(rs.getString("o_trans_num"));
+				dto.setO_sum_money(rs.getInt("o_sum_money"));
+				dto.setO_status(rs.getInt("o_status"));
+				dto.setO_trade_type(rs.getString("o_trade_type"));
+				
+				orderList.add(dto);				
+			}// while
+			System.out.println(" DO : 주문번호 상세정보 조회 성공 ");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return orderList;
+	}
+	// 주문 상세정보 - orderDetail(trade_num)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

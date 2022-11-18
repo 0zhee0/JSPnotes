@@ -67,25 +67,7 @@
 			<th class="tread">관리</th>
 		</tr>
 
-		<c:forEach var="i" begin="0" end="${basketList.size() - 1 }" step="1">
-		    <c:set var="bk"  value="${basketList[i] }" />
-		    <c:set var="goods" value="${goodsList[i] }"/>
-			<tr>
-				<td class="tno">${bk.b_num }</td>
-				<td class="ttitle">
-				  <img src="./upload/${goods.image.split(',')[0] }" 
-				       width="60" height="60">
-				</td>
-				<td class="twrite">${goods.name }</td>
-				<td class="tdate">${goods.price }</td>
-				<td class="tdate">${bk.b_g_amount }</td>
-				<td class="tdate">${bk.b_g_color }</td>
-				<td class="tdate">${bk.b_g_size }</td>
-				<td class="tread"> 
-					<a href="./BasketDeleteAction.ba?b_num=${bk.b_num }">삭제</a> 
-				</td>
-			</tr>
-		</c:forEach>
+		
 		
 	<!-- <form action=""> 여기에 두니 위치상의 문제 발생-->
 		<tr>
